@@ -3,7 +3,7 @@ project(cpp_bouncy_balls)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp modules/Vec2.cpp modules/Vec2.h)
 add_executable(cpp_bouncy_balls ${SOURCE_FILES})
 
 include_directories(CMAKE_SOURCE_DIR/ExternalLibraries/SFML/include)
