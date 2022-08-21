@@ -1,12 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "modules/Vec2.h"
+
 int main() {
-    // There are multiple styles in sf; you can pass multiple using a bitwise |
-    // This will allow the user to close the window and a title bar
-    sf::RenderWindow window(sf::VideoMode(512, 512), "Hello world!", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(512, 512), "cpp-bouncy-balls", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
     sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
-    player.setFillColor(sf::Color::Red);
+    player.setFillColor(sf::Color{ 0xff6660 });
 
     // while the window is open
     while (window.isOpen()) {
@@ -30,6 +30,8 @@ int main() {
                     break;
             }
         }
+
+        std::cout << Vec2(1, 2).x << std::endl;
 
         window.draw(player);
         window.display();

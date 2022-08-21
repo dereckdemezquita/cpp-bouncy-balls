@@ -55,7 +55,7 @@ double Vec2::distance(Vec2 v) const {
 // returns normalised vector
 // values between 0 and 1
 Vec2 Vec2::direction(Vec2 v) const {
-    return v.subtract(*this).normalise();
+    return v - (*this).normalise();
 }
 
 // convert cartesian coordinates to radian angle
@@ -66,6 +66,3 @@ double Vec2::toAngle() const {
 Vec2 Vec2::fromAngle(double radians) {
     return Vec2(cos(radians), sin(radians));
 }
-
-
-
