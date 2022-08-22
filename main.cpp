@@ -50,13 +50,18 @@ int main() {
             }
         }
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            Vec2 mousePos = Vec2(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-            centreBall.setPosition((float)mousePos.x, (float)mousePos.y);
+        if (evnt.type == sf::Event::MouseButtonPressed) {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                Vec2 mousePos = Vec2(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+                centreBall.setPosition((float) mousePos.x, (float) mousePos.y);
 
-            Vec2 spawnPos = Vec2((double)window.getSize().x / 2, (double)window.getSize().y / 2);
-            Vec2 vel = (mousePos - spawnPos) * 0.03;
-            balls.emplace_back(Ball((float)spawnPos.x, (float)spawnPos.y, ballParams.radius, vel.x, vel.y, ballParams.elasticity));
+                Vec2 spawnPos = Vec2((double) window.getSize().x / 2, (double) window.getSize().y / 2);
+                Vec2 vel = (mousePos - spawnPos) * 0.03;
+                Ball newBall = Ball((float) spawnPos.x, (float) spawnPos.y, ballParams.radius, vel.x, vel.y,ballParams.elasticity);
+                // set random colour for newBall
+                newBall.setFillColor(sf::Color(rand() % 255, rand() % 255, rand() % 255));
+                balls.emplace_back(newBall);
+            }
         }
 
         // recentre the ball with current window size
