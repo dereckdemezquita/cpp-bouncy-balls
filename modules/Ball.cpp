@@ -4,7 +4,15 @@
 
 #include "Ball.h"
 
-Ball::Ball(double x, double y, double radius, double vX, double vY, double elasticity, sf::Color colour) {
+Ball::Ball(
+    double x,
+    double y,
+    float radius,
+    double vX,
+    double vY,
+    double elasticity,
+    sf::Color colour
+) : sf::CircleShape(radius)  {
 
     this -> position = Vec2(x, y);
     this -> radius = radius;
@@ -22,6 +30,10 @@ Ball::Ball(double x, double y, double radius, double vX, double vY, double elast
 
     this -> mass = M_PI * pow(radius, 2) * density;
     this -> energy = (this -> mass / 2) * pow(velocity.getMagnitude(), 2);
+
+    // set origin so when click centre of ball
+    setOrigin(getRadius(), getRadius());
+    setPosition((float)position.x, (float)position.y);
 }
 
 void Ball::addEnergy(double energy) {

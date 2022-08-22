@@ -8,16 +8,18 @@
 #include "Vec2.h"
 #include <string>
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
 
 
-class Ball {
+class Ball : public sf::CircleShape {
     public:
         double energy = 0;
         double elasticity = 1;
         bool xColliding = false;
         bool yColliding = false;
         Vec2 position, drawPosition, velocity;
-        double mass, radius;
+        double mass;
+        float radius;
 
         double density = 0.01;
 
@@ -26,7 +28,7 @@ class Ball {
         explicit Ball(
             double x = 0,
             double y = 0,
-            double radius = 5,
+            float radius = 5,
             double vX = 0,
             double vY = 0,
             double elasticity = 1,
