@@ -9,8 +9,8 @@
 int main() {
     // create struct with width and height for storing dimensions
     struct {
-        uint width = 512;
-        uint height = 512;
+        uint width = 800;
+        uint height = 800;
     } window_dim;
 
     sf::RenderWindow window(sf::VideoMode(window_dim.width, window_dim.height), "cpp-bouncy-balls", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
@@ -56,7 +56,7 @@ int main() {
                 centreBall.setPosition((float) mousePos.x, (float) mousePos.y);
 
                 Vec2 spawnPos = Vec2((double) window.getSize().x / 2, (double) window.getSize().y / 2);
-                Vec2 vel = (mousePos - spawnPos) * 0.03;
+                Vec2 vel = (mousePos - spawnPos) * 0.005;
                 Ball newBall = Ball((float) spawnPos.x, (float) spawnPos.y, ballParams.radius, vel.x, vel.y,ballParams.elasticity);
                 // set random colour for newBall
                 newBall.setFillColor(sf::Color(rand() % 255, rand() % 255, rand() % 255));
@@ -69,9 +69,12 @@ int main() {
 
         window.clear();
         window.draw(centreBall);
+
         // draw the balls
         for (int i = 0; i < balls.size(); i++) {
-            Ball ball = balls[i];
+            // https://stackoverflow.com/questions/64519677/c-function-not-updating-variables
+            // we want a reference to the object not a copy
+            Ball& ball = balls[i];
 
             ball.position = ball.position + ball.velocity;
             ball.setPosition((float)ball.position.x, (float)ball.position.y);
