@@ -33,7 +33,7 @@ Ball::Ball(
 
     // set origin so when click centre of ball
     setOrigin(getRadius(), getRadius());
-    setPosition((float)position.x, (float)position.y);
+    setPosition((float)this -> position.x, (float)this -> position.y);
 }
 
 void Ball::addEnergy(double energy) {
