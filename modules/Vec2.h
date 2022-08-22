@@ -16,11 +16,19 @@ class Vec2 {
 
         [[nodiscard]] Vec2 operator+(Vec2 v) const;
 
+        Vec2& operator+=(Vec2 v);
+
         [[nodiscard]] Vec2 operator-(Vec2 v) const;
+
+        Vec2& operator-=(Vec2 v);
 
         [[nodiscard]] Vec2 operator*(double scalar) const;
 
+        Vec2& operator*=(Vec2 v);
+
         [[nodiscard]] Vec2 operator/(Vec2 v) const;
+
+        Vec2& operator/=(Vec2 v);
 
         [[nodiscard]] double getMagnitude() const;
 

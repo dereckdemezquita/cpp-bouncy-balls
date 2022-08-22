@@ -13,16 +13,40 @@ Vec2 Vec2::operator+(Vec2 v) const {
     return Vec2(this -> x + v.x, this -> y + v.y);
 }
 
+Vec2 &Vec2::operator+=(Vec2 v) {
+    this -> x += v.x;
+    this -> y += v.y;
+    return *this;
+}
+
 Vec2 Vec2::operator-(Vec2 v) const {
     return Vec2(this -> x - v.x, this -> y - v.y);
+}
+
+Vec2 &Vec2::operator-=(Vec2 v) {
+    this -> x -= v.x;
+    this -> y -= v.y;
+    return *this;
 }
 
 Vec2 Vec2::operator*(double scalar) const {
     return Vec2(this -> x * scalar, this -> y * scalar);
 }
 
+Vec2 &Vec2::operator*=(Vec2 v) {
+    this -> x *= v.x;
+    this -> y *= v.y;
+    return *this;
+}
+
 Vec2 Vec2::operator/(Vec2 v) const {
     return Vec2(this -> x / v.x, this -> y / v.y);
+}
+
+Vec2 &Vec2::operator/=(Vec2 v) {
+    this -> x /= v.x;
+    this -> y /= v.y;
+    return *this;
 }
 
 double Vec2::getMagnitude() const {

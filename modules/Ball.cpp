@@ -16,7 +16,6 @@ Ball::Ball(
 
     this -> position = Vec2(x, y);
     this -> radius = radius;
-    this -> drawPosition = Vec2(x, y);
     this -> velocity = Vec2(vX, vY);
     this -> colour = colour;
 

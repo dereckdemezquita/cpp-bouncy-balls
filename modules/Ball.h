@@ -17,7 +17,7 @@ class Ball : public sf::CircleShape {
         double elasticity = 1;
         bool xColliding = false;
         bool yColliding = false;
-        Vec2 position, drawPosition, velocity;
+        Vec2 position, velocity;
         double mass;
         float radius;
 
